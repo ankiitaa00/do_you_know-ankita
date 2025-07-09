@@ -1,7 +1,7 @@
 const questions = [
     {
         question: "When is Ankita's birthday?",
-        options: ["21 September", "5 October", "31 December", "9 July"],
+        options: ["21 September", "6 October", "31 December", "9 July"],
         answer: 0
     },
     {
@@ -40,8 +40,8 @@ const questions = [
         answer: 2
     },
     {
-        question: "is she perfect?",
-        options: ["yes", "Asolutely yes", "100% yes", "no"],
+        question: "Is she perfect?",
+        options: ["yes", "Absolutely yes", "100% yes", "no"],
         answer: 2
     },
     {
@@ -58,11 +58,14 @@ const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("options");
 const nextBtn = document.getElementById("next-btn");
 const resultEl = document.getElementById("result");
+const feedbackEl = document.getElementById("feedback");
 
 function showQuestion() {
     const q = questions[current];
     questionEl.textContent = q.question;
     optionsEl.innerHTML = "";
+    feedbackEl.textContent = "";
+    
     q.options.forEach((option, i) => {
         const btn = document.createElement("button");
         btn.textContent = option;
@@ -74,12 +77,16 @@ function showQuestion() {
 
 function selectOption(index) {
     const correct = questions[current].answer;
+
     if (index === correct) {
         score++;
-        alert("✅ Correct yayyy!");
+        feedbackEl.textContent = "✅ Correct yayyy!";
+        feedbackEl.style.color = "#28a745"; // green
     } else {
-        alert(`❌ Wrong! Correct answer is: ${questions[current].options[correct]}`);
+        feedbackEl.textContent = `❌ Wrong! Correct answer is: ${questions[current].options[correct]}`;
+        feedbackEl.style.color = "#dc3545"; // red
     }
+
     nextBtn.style.display = "inline-block";
 }
 
