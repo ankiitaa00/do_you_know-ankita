@@ -6,7 +6,7 @@ const questions = [
     },
     {
         question: "What is Ankita studying?",
-        options: ["Mechanical", "Fashion", "Computer Science", "Architecture"],
+        options: ["Mechanical Engineering", "Fashion Designing", "Computer Science", "Architecture"],
         answer: 2
     },
     {
@@ -20,8 +20,33 @@ const questions = [
         answer: 2
     },
     {
-        question: "Which aesthetic does Ankita love?",
-        options: ["Grunge", "Gen Z", "Dark academia", "Minimalism"],
+        question: "Which social media aesthetic does Ankita love?",
+        options: ["Grunge", "Gen Z aesthetic", "Dark academia", "Minimalism"],
+        answer: 1
+    },
+    {
+        question: "What was Ankita’s weight the last time she mentioned it?",
+        options: ["38 kg", "50 kg", "40 kg", "45 kg"],
+        answer: 2
+    },
+    {
+        question: "Where did Ankita go for a chill vacation?",
+        options: ["Goa", "Rishikesh", "Manali", "Pathankot"],
+        answer: 1
+    },
+    {
+        question: "What’s a personality trait Ankita strongly connects with?",
+        options: ["Extroverted", "Loud", "Introverted", "Carefree"],
+        answer: 2
+    },
+    {
+        question: "Who hurt Ankita badly in school?",
+        options: ["A friend", "A senior", "A classmate-boyfriend", "A teacher"],
+        answer: 2
+    },
+    {
+        question: "What’s Ankita’s relationship status now?",
+        options: ["Single", "In a relationship", "Situationship", "Secret crush"],
         answer: 1
     }
 ];
@@ -48,11 +73,12 @@ function showQuestion() {
 }
 
 function selectOption(index) {
-    if (index === questions[current].answer) {
+    const correct = questions[current].answer;
+    if (index === correct) {
         score++;
         alert("✅ Correct!");
     } else {
-        alert("❌ Wrong!");
+        alert(`❌ Wrong! Correct answer is: ${questions[current].options[correct]}`);
     }
     nextBtn.style.display = "inline-block";
 }
@@ -69,9 +95,11 @@ nextBtn.onclick = () => {
 
 function showResult() {
     document.getElementById("quiz-box").style.display = "none";
-    resultEl.innerHTML = `🎉 You got ${score} out of ${questions.length}!<br>${
-        score === questions.length ? "You're Ankita's bestie 💖" : score >= 3 ? "Not bad 😄" : "Fake friend alert! 🚨"
-    }`;
+    resultEl.innerHTML = `🎉 You scored <strong>${score} / ${questions.length}</strong><br>` +
+        (score === questions.length ? "👑 You're Ankita’s soul bestie!" :
+        score >= 7 ? "💖 You know her pretty well!" :
+        score >= 4 ? "😶 You kind of know Ankita..." :
+        "🚨 Fake friend alert! 😤");
 }
 
 showQuestion();
