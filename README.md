@@ -1,2 +1,2 @@
-# do_you_know-ankita
+# do-you-know-ankita
 a fun quiz 
