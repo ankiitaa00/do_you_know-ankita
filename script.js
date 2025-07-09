@@ -40,8 +40,8 @@ const questions = [
         answer: 2
     },
     {
-        question: "Who hurt Ankita badly in school?",
-        options: ["A friend", "A senior", "A classmate-boyfriend", "A teacher"],
+        question: "is she perfect?",
+        options: ["yes", "Asolutely yes", "100% yes", "no"],
         answer: 2
     },
     {
@@ -76,7 +76,7 @@ function selectOption(index) {
     const correct = questions[current].answer;
     if (index === correct) {
         score++;
-        alert("✅ Correct!");
+        alert("✅ Correct yayyy!");
     } else {
         alert(`❌ Wrong! Correct answer is: ${questions[current].options[correct]}`);
     }
@@ -96,10 +96,10 @@ nextBtn.onclick = () => {
 function showResult() {
     document.getElementById("quiz-box").style.display = "none";
     resultEl.innerHTML = `🎉 You scored <strong>${score} / ${questions.length}</strong><br>` +
-        (score === questions.length ? "👑 You're Ankita’s soul bestie!" :
-        score >= 7 ? "💖 You know her pretty well!" :
-        score >= 4 ? "😶 You kind of know Ankita..." :
-        "🚨 Fake friend alert! 😤");
+        (score === questions.length ? "👑 hehe love yaa" :
+        score >= 7 ? "💖 no kisses for you!" :
+        score >= 4 ? "😶 what the helly..." :
+        "🚨 guu khalo 😤");
 }
 
 showQuestion();
